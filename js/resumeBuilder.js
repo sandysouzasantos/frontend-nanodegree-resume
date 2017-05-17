@@ -26,6 +26,7 @@ var bio = {
         var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
         $("#topContacts").append(formattedEmail + formattedMobile + formattedGithub + formattedLocation);
+        $("#footerContacts").append(formattedEmail + formattedMobile + formattedGithub + formattedLocation);
 
         var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
 
@@ -84,7 +85,7 @@ var education = {
             "degree": "BA",
             "majors": ["Law School"],
             "dates": "March, 2010 - December, 2014",
-            "url": ""
+            "url": "http://www.ufv.br/"
         },
         {
             "name": "Colégio Anglo",
@@ -92,7 +93,7 @@ var education = {
             "degree": "High School",
             "majors": ["High School"],
             "dates": "February, 2007 - December, 2009",
-            "url": ""
+            "url": "http://www.colegioabcanglo.com.br/"
         }
     ],
     "onlineCourses": [
@@ -139,8 +140,9 @@ var education = {
             $(".education-entry:last").append(formattedLocation);
             $(".education-entry:last").append(formattedMajors);
         }
-        $(".education-entry:last").append(HTMLonlineClasses);
+        $("#education").append(HTMLonlineClasses);
         for (course in education.onlineCourses) {
+            $("#education").append(HTMLschoolStart);
             var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
             var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
             var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
