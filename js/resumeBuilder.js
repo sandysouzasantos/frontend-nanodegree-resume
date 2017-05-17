@@ -160,11 +160,11 @@ function locationizer(work_obj) {
 // Did locationizer() work? This line will tell you!
 console.log(locationizer(work));
 
-$("#main").append(internationalizeButton);
+$("#main").prepend(internationalizeButton);
 
 var inName = function () {
     var finalName = bio.name;
-    var name = bio.name.trim().split(" ");
+    var name = finalName.trim().split(" ");
     name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
     name[1] = name[1].toUpperCase();
     finalName = name.join(" ");
@@ -172,8 +172,6 @@ var inName = function () {
 };
 
 console.log(inName());
-
-$("button").click(inName());
 
 projects.display = function () {
     for (proj in projects.project) {
