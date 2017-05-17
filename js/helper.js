@@ -98,7 +98,6 @@ $(document).click(function (loc) {
  */
 var map;    // declares a global map variable
 
-
 /*
  Start here! initializeMap() is called when page is loaded.
  */
@@ -115,7 +114,6 @@ function initializeMap() {
      appended to #mapDiv in resumeBuilder.js.
      */
     map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
 
     /*
      locationFinder() returns an array of every location string from the JSONs

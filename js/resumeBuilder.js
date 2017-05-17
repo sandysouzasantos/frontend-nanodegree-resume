@@ -12,34 +12,23 @@ var bio = {
     "skills": ["HTML5", "CSS3", "JS", "Bootstrap", "Foundation", "JQuery", "Grunt", "Web Semantics", "Responsivity", "Frontend Development", "Web Development"],
     "display": function () {
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
-
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-
         $("#header").prepend(formattedName + formattedRole);
-
         var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-
         var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-
         var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-
         var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-
         $("#topContacts").append(formattedEmail + formattedMobile + formattedGithub + formattedLocation);
         $("#footerContacts").append(formattedEmail + formattedMobile + formattedGithub + formattedLocation);
-
         var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-
         var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
         $("#header").append(formattedPic + formattedMsg);
-
         if (bio.skills.length > 0) {
             $("#header").append(HTMLskillsStart);
-            for (skill in bio.skills) {
-                var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+            bio.skills.forEach(function (skill) {
+                var formattedSkill = HTMLskills.replace("%data%", skill);
                 $("#skills").append(formattedSkill);
-            }
+            });
         }
     }
 };
@@ -62,18 +51,18 @@ var work = {
         }
     ],
     "display": function () {
-        for (job in work.jobs) {
+        work.jobs.forEach(function (job) {
             $("#workExperience").append(HTMLworkStart);
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-            var formattedPosition = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-            var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-            var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-            var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+            var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+            var formattedPosition = HTMLworkTitle.replace("%data%", job.title);
+            var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+            var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+            var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
             $(".work-entry:last").append(formattedEmployer + formattedPosition);
             $(".work-entry:last").append(formattedDates);
             $(".work-entry:last").append(formattedLocation);
             $(".work-entry:last").append(formattedDescription);
-        }
+        });
     }
 };
 
@@ -129,29 +118,30 @@ var education = {
         }
     ],
     "display": function () {
-        for (school in education.schools) {
+        education.schools.forEach(function (school) {
             $("#education").append(HTMLschoolStart);
-            var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-            var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
-            var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
-            var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+            var formattedName = HTMLschoolName.replace("%data%", school.name);
+            var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
+            var formattedMajors = HTMLschoolMajor.replace("%data%", school.majors);
+            var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
             $(".education-entry:last").append(formattedName);
             $(".education-entry:last").append(formattedDates);
             $(".education-entry:last").append(formattedLocation);
             $(".education-entry:last").append(formattedMajors);
-        }
+        });
+
         $("#education").append(HTMLonlineClasses);
-        for (course in education.onlineCourses) {
+
+        education.onlineCourses.forEach(function (course) {
             $("#education").append(HTMLschoolStart);
-            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
-            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
-            var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-            var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+            var formattedTitle = HTMLonlineTitle.replace("%data%", course.title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", course.school);
+            var formattedDate = HTMLonlineDates.replace("%data%", course.dates);
+            var formattedUrl = HTMLonlineURL.replace("%data%", course.url);
             $(".education-entry:last").append(formattedTitle + formattedSchool);
             $(".education-entry:last").append(formattedDate);
             $(".education-entry:last").append(formattedUrl);
-        }
-
+        });
     }
 };
 
@@ -161,36 +151,36 @@ var projects = {
             "title": "Crawly",
             "url": "http://www.crawly.com.br/",
             "dates": "January, 2017 - In progress",
-            "images": "",
+            "images": [],
             "description": "Frontend development of private libraries for a company called Crawly."
         },
         {
             "title": "LinceApp",
             "url": "https://www.linceapp.com/",
             "dates": "February, 2017 - March, 2017",
-            "images": "images/linceapp2.jpg",
+            "images": ["images/linceapp2.jpg"],
             "description": "Frontend development. HTML5, CSS3, Bootstrap, Javascript, jQuery, Blade (Laravel)."
         },
         {
             "title": "ForSocios",
             "url": "https://www.forsocios.com/",
             "dates": "December, 2016",
-            "images": "images/forsocios.jpg",
+            "images": ["images/forsocios.jpg"],
             "description": "Frontend Development. HTML5, CSS3, Bootstrap"
         }
     ],
     "display": function () {
-        for (proj in projects.project) {
+        projects.project.forEach(function (proj) {
             $("#projects").append(HTMLprojectStart);
-            var formattedDate = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
-            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
-            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
-            var formattedImages = HTMLprojectImage.replace("%data%", projects.project[proj].images);
+            var formattedDate = HTMLprojectDates.replace("%data%", proj.dates);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", proj.title);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", proj.description);
+            var formattedImages = HTMLprojectImage.replace("%data%", proj.images);
             $(".project-entry:last").append(formattedTitle);
             $(".project-entry:last").append(formattedDate);
             $(".project-entry:last").append(formattedDescription);
             $(".project-entry:last").append(formattedImages);
-        }
+        });
     }
 };
 
@@ -200,9 +190,9 @@ work.display();
 
 function locationizer(work_obj) {
     var locationArray = [];
-    for (job in work_obj.jobs) {
-        locationArray.push(work_obj.jobs[job].location);
-    }
+    work_obj.jobs.forEach(function (job) {
+        locationArray.push(job.location);
+    });
     return locationArray;
 }
 // Did locationizer() work? This line will tell you!
