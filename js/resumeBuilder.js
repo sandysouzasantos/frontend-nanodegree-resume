@@ -56,7 +56,7 @@ var work = {
             "title": "Lawyer",
             "employer": "Rosi e Rajão Advogados Associados, Ney Campos Advogados Associados, Freelancer",
             "dates": "2015 - 2016",
-            "location": "Belo Horizonte, MG, Brazil",
+            "location": "Belo Horizonte e Região, MG, Brazil",
             "description": "Worked as a lawyer for various firms, drafting contracts, collection actions, labor and civil lawsuits, and intellectual property consulting."
         }
     ],
@@ -66,9 +66,11 @@ var work = {
             var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
             var formattedPosition = HTMLworkTitle.replace("%data%", work.jobs[job].title);
             var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+            var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
             var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
             $(".work-entry:last").append(formattedEmployer + formattedPosition);
             $(".work-entry:last").append(formattedDates);
+            $(".work-entry:last").append(formattedLocation);
             $(".work-entry:last").append(formattedDescription);
         }
     }
@@ -83,13 +85,21 @@ var education = {
             "majors": ["Law School"],
             "dates": "March, 2010 - December, 2014",
             "url": ""
+        },
+        {
+            "name": "Colégio Anglo",
+            "location": "Patrocínio, MG, Brazil",
+            "degree": "High School",
+            "majors": ["High School"],
+            "dates": "February, 2007 - December, 2009",
+            "url": ""
         }
     ],
     "onlineCourses": [
         {
             "title": "Frontend Developer Nanodegree",
             "school": "Udacity",
-            "dates": "In progress",
+            "dates": "March, 2017 - In progress",
             "url": "https://profiles.udacity.com/p/10395977147"
         },
         {
@@ -116,7 +126,31 @@ var education = {
             "dates": "November, 2016",
             "url": "https://www.coursera.org/account/accomplishments/verify/4G36WLXCVKNQ"
         }
-    ]
+    ],
+    "display": function () {
+        for (school in education.schools) {
+            $("#education").append(HTMLschoolStart);
+            var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+            var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+            var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+            var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+            $(".education-entry:last").append(formattedName);
+            $(".education-entry:last").append(formattedDates);
+            $(".education-entry:last").append(formattedLocation);
+            $(".education-entry:last").append(formattedMajors);
+        }
+        $(".education-entry:last").append(HTMLonlineClasses);
+        for (course in education.onlineCourses) {
+            var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+            var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+            var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+            var formattedUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
+            $(".education-entry:last").append(formattedTitle + formattedSchool);
+            $(".education-entry:last").append(formattedDate);
+            $(".education-entry:last").append(formattedUrl);
+        }
+
+    }
 };
 
 var projects = {
@@ -142,9 +176,21 @@ var projects = {
             "images": "images/forsocios.jpg",
             "description": "Frontend Development. HTML5, CSS3, Bootstrap"
         }
-    ]
+    ],
+    "display": function () {
+        for (proj in projects.project) {
+            $("#projects").append(HTMLprojectStart);
+            var formattedDate = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
+            var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
+            var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
+            var formattedImages = HTMLprojectImage.replace("%data%", projects.project[proj].images);
+            $(".project-entry:last").append(formattedTitle);
+            $(".project-entry:last").append(formattedDate);
+            $(".project-entry:last").append(formattedDescription);
+            $(".project-entry:last").append(formattedImages);
+        }
+    }
 };
-
 
 bio.display();
 
@@ -173,20 +219,8 @@ var inName = function () {
 
 console.log(inName());
 
-projects.display = function () {
-    for (proj in projects.project) {
-        $("#projects").append(HTMLprojectStart);
-        var formattedDate = HTMLprojectDates.replace("%data%", projects.project[proj].dates);
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[proj].title);
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[proj].description);
-        var formattedImages = HTMLprojectImage.replace("%data%", projects.project[proj].images);
-        $(".project-entry:last").append(formattedTitle);
-        $(".project-entry:last").append(formattedDate);
-        $(".project-entry:last").append(formattedDescription);
-        $(".project-entry:last").append(formattedImages);
-    }
-};
-
 projects.display();
+
+education.display();
 
 $("#mapDiv").append(googleMap);
