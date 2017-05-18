@@ -5,6 +5,7 @@ var bio = {
         "email": "sandysouzasantos@gmail.com",
         "mobile": "+55 31 999 165 082",
         "github": "sandysouzasantos",
+        "githubUrl": "https://github.com/sandysouzasantos",
         "location": "Belo Horizonte, MG, Brazil"
     },
     "biopic": "images/me.jpeg",
