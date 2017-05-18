@@ -216,4 +216,6 @@ projects.display();
 
 education.display();
 
+$(".red-span").after(internationalizeButton);
+
 $("#mapDiv").append(googleMap);

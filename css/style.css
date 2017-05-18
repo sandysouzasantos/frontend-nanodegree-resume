@@ -18,6 +18,12 @@ body {
     background-color: #f3f3f3;
 }
 
+#button {
+    float: right;
+    color: #dd523a;
+    background-color: #ccc3b1;
+}
+
 hr {
     border-color: #f3f3f3;
 }
