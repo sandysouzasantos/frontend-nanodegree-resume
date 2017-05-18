@@ -1,5 +1,5 @@
 var bio = {
-    "name": "Sandy Souza",
+    "name": "Sandy Santos",
     "role": "Web Developer",
     "contacts": {
         "email": "sandysouzasantos@gmail.com",
@@ -151,7 +151,7 @@ var projects = {
             "title": "Crawly",
             "url": "http://www.crawly.com.br/",
             "dates": "January, 2017 - In progress",
-            "images": [],
+            "images": ["images/crawly.jpg"],
             "description": "Frontend development of private libraries for a company called Crawly."
         },
         {
@@ -198,7 +198,7 @@ function locationizer(work_obj) {
 // Did locationizer() work? This line will tell you!
 console.log(locationizer(work));
 
-$("#main").prepend(internationalizeButton);
+//$("#main").prepend(internationalizeButton);
 
 var inName = function () {
     var finalName = bio.name;

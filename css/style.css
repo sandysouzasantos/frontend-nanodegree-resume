@@ -14,6 +14,14 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #f3f3f3;
+}
+
+hr {
+  border-color: #f3f3f3;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -26,7 +34,7 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #dd523a;
   line-height: 48px;
   display: inline;
 }
@@ -34,7 +42,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  color: #0c2b35;
   line-height: 29px;
   padding: 10px;
 }
@@ -42,7 +50,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #0c2b35;
   line-height: 22px;
 }
 
@@ -95,41 +103,45 @@ a {
 .welcome-message {
   font-style: italic;
   font-size: 18px;
-  color: #f3f3f3;
+  color: #ccc3b1;
   line-height: 28px;
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #dd523a;
   display: none;
 }
 
-.orange {
-  background-color: #f5ae23;
+.red {
+  background-color: #dd523a;
 }
 
-.orange-text {
-  color: #f5ae23;
+.red-text {
+  color: #dd523a;
 }
 
-.white-text {
+.red-span {
+  color: #dd523a;
+}
+
+.vintage-text {
   font-weight: bold;
-  color: #fff;
+  color: #ccc3b1;
 }
 
 .gray {
-  background-color: #f3f3f3;
+  background-color: #e0ded7;
   padding-bottom: 10px;
   clear: both;
 }
 
-.dark-gray {
-  background-color: #4a4a4a;
+.dark-blue {
+  background-color: #0c2b35;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #0c2b35;
 }
 
 .flex-box {
@@ -161,6 +173,10 @@ ul {
   padding: 10px;
   width: 200px;
   display: none;
+}
+
+.projectPic {
+  width: 400px;
 }
 
 img {
@@ -195,6 +211,9 @@ span {
   }
   .biopic {
     width: 150px;
+  }
+  .projectPic {
+    max-width: 100%;
   }
   .welcome-message {
     display: none;
