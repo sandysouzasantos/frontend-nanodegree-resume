@@ -219,3 +219,9 @@ education.display();
 $(".red-span").after(internationalizeButton);
 
 $("#mapDiv").append(googleMap);
+
+//This is for prevent attacks
+/*
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}*/
