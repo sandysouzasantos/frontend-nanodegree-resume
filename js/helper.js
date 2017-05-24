@@ -175,7 +175,7 @@ function initializeMap() {
         // hmmmm, I wonder what this is about...
         google.maps.event.addListener(marker, 'click', function (e) {
             // your code goes here!
-            
+
         });
 
 
